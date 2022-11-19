@@ -1,0 +1,86 @@
+[
+    {
+        "id": "track_01",
+        "name": "They Came From Dimension X",
+        "file": "res://music/mus_track01.ogg",
+        "loops": [[51.6,66.1]],
+        "notes":"Main theme"
+    },
+    {
+        "id": "track_02",
+        "name": "You Have Survived",
+        "file": "res://music/mus_track02.ogg",
+        "loops": [[11.034,113.103]],
+        "notes":"START, Intermission music"
+    },
+    {
+        "id": "track_03",
+        "name": "Horrible Beyond Conception",
+        "file": "res://music/mus_track03.ogg",
+        "loops": [],
+        "notes":"E1M1: Research Base"
+    },
+    {
+        "id": "track_04",
+        "name": "",
+        "file": "res://music/mus_track04.ogg",
+        "loops": [],
+        "notes":"E1M2: Red Planet"
+    },
+    {
+        "id": "track_05",
+        "name": "Dark Halls and Dead Gods",
+        "file": "res://music/mus_track05.ogg",
+        "loops": [],
+        "notes":"E1M3: Sheol"
+    },
+    {
+        "id": "track_06",
+        "name": "Blasphemously Surviving Nightmares",
+        "file": "res://music/mus_track06.ogg",
+        "loops": [[48.275,141.379]],
+        "notes":"E1M4:Dig Site, VERT_DEMO:Temple of the Elder Things"
+    },
+    {
+        "id": "track_07",
+        "name": "Of Shoggoths",
+        "file": "res://music/mus_track07.ogg",
+        "loops": [[10.55,127.55]],
+        "notes":"Drums kick in at 8.55, in case you wanted to time it to the drums."
+    },
+    {
+        "id": "track_08",
+        "name": "Murder Machine",
+        "file": "res://music/mus_track08.ogg",
+        "loops": [],
+        "notes":"E1M5: Fear Factory"
+    },
+    {
+        "id": "track_09",
+        "name": "",
+        "file": "res://music/mus_track06.ogg",
+        "loops": [],
+        "notes":"E1M6: Ravermos"
+    },
+    {
+        "id": "track_10",
+        "name": "Solar Shock",
+        "file": "res://music/mus_track06.ogg",
+        "loops": [],
+        "notes":"E1M7: Flagship Vulthoom"
+    },
+    {
+        "id": "track_11",
+        "name": "Machine God URSAGGWAA",
+        "file": "res://music/mus_track06.ogg",
+        "loops": [],
+        "notes":"E1M8: URSAGGWAA"
+    },
+    {
+        "id": "track_12",
+        "name": "The Gun Show",
+        "file": "res://music/mus_track12.ogg",
+        "loops": [],
+        "notes":""
+    }
+]
