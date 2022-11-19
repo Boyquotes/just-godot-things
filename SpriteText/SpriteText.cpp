@@ -38,7 +38,7 @@ void SpriteText::_register_methods()
 	// Properties
 	register_property("text_update", &SpriteText::set_text_update, &SpriteText::get_text_update, false);
 	register_property("font", &SpriteText::set_font, &SpriteText::get_font, 0, GODOT_METHOD_RPC_MODE_DISABLED, GODOT_PROPERTY_USAGE_DEFAULT, 
-		GODOT_PROPERTY_HINT_ENUM, "CONSOLE,POSTER");
+		GODOT_PROPERTY_HINT_ENUM, "DEFAULT,CONSOLE");
 	register_property("font_scale", &SpriteText::set_font_scale, &SpriteText::get_font_scale, Vector2::ONE);
 	register_property("font_color", &SpriteText::set_font_color, &SpriteText::get_font_color, Color(1.0f,1.0f,1.0f,1.0f));
 	register_property("font_shader", &SpriteText::set_font_shader, &SpriteText::get_font_shader, String(""));
@@ -302,8 +302,8 @@ void SpriteText::write_char(int i)
 // BASE PROCESSING -----------------------------------------------------------------
 void SpriteText::_init()
 {
+	font_sources.push_back("res://ui/spriteText/spriteFont.tscn");
 	font_sources.push_back("res://ui/spriteText/utf_console.tscn");
-	font_sources.push_back("res://ui/spriteText/utf_poster.tscn");
 }
 
 void SpriteText::_ready()
