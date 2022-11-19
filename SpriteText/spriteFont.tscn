@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/spriteText/spriteFont.png" type="Texture" id=1]
+[ext_resource path="res://ui/spriteText/SpriteFont.gdns" type="Script" id=2]
+
+[node name="c" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 9
+vframes = 9
+script = ExtResource( 2 )
