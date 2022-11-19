@@ -6,5 +6,5 @@ what you can do with Godot, and how you might do it for your own projects.
 
 All files on here are provided as is, with no guarantees of functionality within your own projects nor any guarantees of instruction or troubleshooting.
 
-All entities provided under Creative Commons Zero where applicable, except where restricted by the Godot, Qodot, or Trenchbroom licenses.
+All code and files provided under Creative Commons Zero where applicable.
 https://creativecommons.org/share-your-work/public-domain/cc0/
