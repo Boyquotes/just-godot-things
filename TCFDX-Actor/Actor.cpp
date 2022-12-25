@@ -833,7 +833,7 @@ void Actor::damage(int amount, Node* attack, NodePath attacker)
 		b->set_global_translation(c["position"]);
 		b->look_at((Vector3)c["position"] + (Vector3)c["normal"], b->to_global(Vector3::UP));
 	};
-	// Chance to hit the paint state
+	// Chance to hit the pain state
 	if (current_state != ST_PAIN && health > 0 && rng->randi() % 100 < pain_chance)
 		state_change(ST_PAIN);
 	// Gibbing
