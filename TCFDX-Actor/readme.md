@@ -1,0 +1,1 @@
+Main Actor base class for **_They Came From Dimension X_**. It's a bit hefty, needs a lot of optimization. Definitely the most complex class in the whole game. Does some cool things though that can hopefully help or inspire, and I like sharing the wealth if I can (_and maybe get some help optimizing it lol_). Anyway, I hope you find this useful! Happy game dev'ing!
