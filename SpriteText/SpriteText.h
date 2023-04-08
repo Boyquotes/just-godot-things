@@ -25,8 +25,8 @@ namespace godot {
 
     SPRITE FONT CLASS
 
-    Definition object instanced by Sprite Text objects.Setting character size
-    and character set will automatically cut the frames appropriately.
+    Font definition object instanced by SpriteText objects.
+    Setting character size and character set will automatically cut the frames appropriately.
 
     *******************************************************************************/
     class SpriteFont : public Sprite2D {
@@ -49,12 +49,8 @@ namespace godot {
 
     SPRITE TEXT CLASS
 
-    Object that writes and displays text.Used in conjunction with message windows,
-    menus, etc... Main information conveyance object.
-
-    Node Tree:
-    - ReferenceRect "text"
-        - ReferenceRect "scroll"
+    ReferenceRect node that writes and displays text. It creates a child ReferenceRect
+    "scroll" object that SpriteFont characters are then added and positioned to.
 
     *******************************************************************************/
 #define MAX_CHARS 1024
