@@ -6,12 +6,12 @@
 using namespace godot;
 
 /*******************************************************************************
-    
+
 SPRITE FONT CLASS
 
 Font definition object instanced by SpriteText objects.
 Setting character size and character set will automatically cut the frames appropriately.
-    
+
 *******************************************************************************/
 void SpriteFont::_bind_methods() {
     // character_size
@@ -22,27 +22,15 @@ void SpriteFont::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_character_set", "_character_set"), &SpriteFont::set_character_set);
     ClassDB::bind_method(D_METHOD("get_character_set"), &SpriteFont::get_character_set);
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "character_set", PROPERTY_HINT_MULTILINE_TEXT), "set_character_set", "get_character_set");
-
-    //ClassDB::bind_method(D_METHOD("_init"), &SpriteFont::_init);
 }
 
-void SpriteFont::set_character_size(Vector2 new_character_size) {
-    character_size = new_character_size;
-    set_hframes(int(get_texture()->get_width() / character_size.x));
-    set_vframes(int(get_texture()->get_height() / character_size.y));
-}
-
+void SpriteFont::set_character_size(Vector2 new_character_size) { character_size = new_character_size; }
 Vector2 SpriteFont::get_character_size() { return character_size; }
 void SpriteFont::set_character_set(String new_character_set) { character_set = new_character_set; }
 String SpriteFont::get_character_set() { return character_set; }
 
 SpriteFont::SpriteFont() {}
 SpriteFont::~SpriteFont() {}
-
-void SpriteFont::_init() {
-    set_centered(false);
-    set_character_size(character_size);
-}
 
 /*******************************************************************************
 
@@ -104,8 +92,6 @@ void SpriteText::_bind_methods() {
     ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "scroll_speed"), "set_scroll_speed", "get_scroll_speed");
 
     // METHODS
-    //ClassDB::bind_method(D_METHOD("set_font_res"), &SpriteText::set_font_res);
-    //ClassDB::bind_method(D_METHOD("set_font_shader_res"), &SpriteText::set_font_shader_res);
     ClassDB::bind_method(D_METHOD("add_scroll_box"), &SpriteText::add_scroll_box);
     ClassDB::bind_method(D_METHOD("clear"), &SpriteText::clear);
     ClassDB::bind_method(D_METHOD("write", "new_text", "clear_old_text"), &SpriteText::write);
@@ -144,7 +130,7 @@ bool SpriteText::set_font_res() {
     c->queue_free();
     return true;
 }
-    
+
 void SpriteText::set_font_scale(Vector2 s) { font_scale = s; } Vector2 SpriteText::get_font_scale() { return font_scale; }
 void SpriteText::set_font_color(Color new_font_color) { font_color = new_font_color; } Color SpriteText::get_font_color() { return font_color; }
 
@@ -165,11 +151,11 @@ bool SpriteText::set_font_shader_res() {
 }
 
 // Writing
-void SpriteText::set_text(String new_text) { 
+void SpriteText::set_text(String new_text) {
     text = new_text;
     if (Engine::get_singleton()->is_editor_hint())
         write(new_text, true);
-} 
+}
 String SpriteText::get_text() { return text; }
 
 void SpriteText::set_write_speed(float new_write_speed) { write_speed = new_write_speed; } float SpriteText::get_write_speed() { return write_speed; }
@@ -247,14 +233,14 @@ void SpriteText::write_loop(float delta) {
             }
             else
                 write_ct -= delta;
-        };
-    };
+        }
+    }
 
     // Finish writing
     if (write_progress == text.length()) {
         write_progress++;
         emit_signal("write_complete");
-    };
+    }
     if (scr->get_child_count() > MAX_CHARS)
         scr->get_child(0)->queue_free();
 }
@@ -293,8 +279,8 @@ void SpriteText::write_char(int i) {
                 if ((px + next_word_length) * fx >= get_size().x) {
                     py += 1;
                     px = 0;
-                };
-        };
+                }
+        }
         if (px > 0) {
             SpriteFont* c = cast_to<SpriteFont>(font_res->instantiate());
             c->hide();
@@ -302,7 +288,7 @@ void SpriteText::write_char(int i) {
             scr->add_child(c);
             c->set_owner(scr);
             c->set_position(Vector2(px * fx, py * fy));
-        };
+        }
     }
     // Standard character
     else {
@@ -319,7 +305,7 @@ void SpriteText::write_char(int i) {
                 c->set_frame(Math::min(frame, int(c->get_hframes() * c->get_vframes())));
             else
                 c->hide();
-        };
+        }
         // Colorize the character
         c->set_modulate(font_color);
         // Obvious
@@ -328,7 +314,7 @@ void SpriteText::write_char(int i) {
         if (font_shader != "") {
             //c->set_material(font_shader_res->duplicate());
             Ref<ShaderMaterial>((c)->get_material())->set_shader_parameter("char_index", i);
-        };
+        }
         // Add the character to the tree
         scr->add_child(c);
         c->set_owner(scr);
@@ -336,7 +322,7 @@ void SpriteText::write_char(int i) {
         if (float(px) * fx >= get_size().x) {
             py += 1;
             px = 0;
-        };
+        }
         c->set_position(Vector2(px * fx, py * fy));
         if (alignment != ALIGN::LEFT) {
             int t_ct = int(scr->get_child_count()) - 1;
@@ -353,11 +339,11 @@ void SpriteText::write_char(int i) {
                         x -= fx * j;
                     }
                     align_c->set_position(Vector2(x, py * fy));
-                };
-            };
-        };
+                }
+            }
+        }
         px += 1;
-    };
+    }
     scr->set_size(Vector2(scr->get_size().x, float(py + 1) * fy + 1.0f));
     write_pos = Vector2(px, py);
 }
@@ -369,9 +355,9 @@ SpriteText::SpriteText() {}
 SpriteText::~SpriteText() {}
 
 void SpriteText::ready() {
+    set_clip_contents(true);
     set_font_res();
-    if (has_node("scroll"))
-    {
+    if (has_node("scroll")) {
         scr = get_node<ReferenceRect>("scroll");
         scr->set_size(Vector2(get_size().x, get_size().y + 1.0f));
     }
@@ -382,10 +368,8 @@ void SpriteText::ready() {
 
 void SpriteText::process(float delta) {
     // safety in case we haven't autogenerated our scroll node yet
-    if (scr == nullptr)
-    {
-        if (has_node("scroll"))
-        {
+    if (scr == nullptr) {
+        if (has_node("scroll")) {
             scr = get_node<ReferenceRect>("scroll");
             scr->set_size(Vector2(get_size().x, get_size().y + text_margin.y + 1.0f));
         }
@@ -398,18 +382,16 @@ void SpriteText::process(float delta) {
 
     // Scrolling
     scr->set_size(Vector2(get_size().x, scr->get_size().y));
-    if (auto_scroll && scr->get_size().y > get_size().y)
-    {
+    if (auto_scroll && scr->get_size().y > get_size().y) {
         if (scroll_speed > 0.0f)
             scr->set_position(Vector2(scr->get_position().x, fmaxf(scr->get_position().y - scroll_speed * delta, get_size().y - scr->get_size().y)));
         else
             scr->set_position(Vector2(scr->get_position().x, get_size().y - scr->get_size().y));
-    };
+    }
 }
 
 void SpriteText::_notification(int _notif) {
-    switch (_notif)
-    {
+    switch (_notif) {
     case NOTIFICATION_READY:
         ready();
         set_process(true);
