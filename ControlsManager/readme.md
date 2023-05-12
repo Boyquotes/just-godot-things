@@ -2,4 +2,6 @@ Godot 4 GDExtension management class to handle player input. Supports keyboard, 
 
 Add to your GDExtension C++ project. Action map is defined in ControlsMgr.h, no need to modify ControlsMgr.cpp. In Godot, add the GD script as an Autoload Singleton.
 
+Released under CC0.
+
 Hope you find this helpful!   :)
