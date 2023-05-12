@@ -42,7 +42,6 @@ namespace godot {
         Vector2 get_character_size();
         void set_character_set(String new_character_set);
         String get_character_set();
-        void _init();
     };
 
     /*******************************************************************************
