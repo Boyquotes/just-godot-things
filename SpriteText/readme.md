@@ -3,3 +3,5 @@ Standalone GDExtension Class that can be plugged into larger projects. Create a 
 Supported Godot Version: 4.0.2
 
 Released under CC0
+
+Hope this helps you!
